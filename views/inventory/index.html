@@ -1,0 +1,52 @@
+{% extends 'inventaryLayout.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inventary/home.css') }}" type="text/css" media="all">
+{% endblock %}
+
+
+{% block main %}
+    <div class="content_home">
+        <div class="content_home_header">
+            <h1>Informacion del invetario</h1>
+        </div>
+
+        <div class="content_home_body">
+            <div class="content_home_body_card">
+                <a href="{{ url_for('index.categories.index')}}">
+                    <div class="content_home_body_card_header">
+                        categorias
+                    </div>
+                    <div class="content_home_body_card_body">
+                        <p>Categorias registradas</p>
+                        <p>total: {{ data.count.category_count }}</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="content_home_body_card">
+                <a href="{{ url_for('index.products.index')}}">
+                    <div class="content_home_body_card_header">
+                        Productos
+                    </div>
+                    <div class="content_home_body_card_body">
+                        <p>Productos registrados</p>
+                        <p>total: {{ data.count.product_count }}</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="content_home_body_card">
+                <a href="{{ url_for('index.history.index')}}">
+                    <div class="content_home_body_card_header">
+                        Historial
+                    </div>
+                    <div class="content_home_body_card_body">
+                        <p>Historial registrado</p>
+                        <p>total: {{ data.count.history_count }}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

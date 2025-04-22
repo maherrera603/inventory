@@ -1,0 +1,49 @@
+{% extends 'inventaryLayout.html' %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/history/histories.css' ) }}" type="text/css" media="all">
+{% endblock %}
+
+{% block main %} 
+
+    <div class="content__histories">
+        <div class="content__histories__header">
+            <h1 class="content__histories__header__title">Historial de movimientos</h1>
+        </div>
+
+
+        {% if data["histories"] | length  > 0  %}
+       
+            <div class="histories">
+                <div class="histories_header">N°</div>
+                <div class="histories_header">producto</div>
+                <div class="histories_header">movimiento</div>
+                <div class="histories_header">Cantidad</div>
+                <div class="histories_header">Accion</div>
+
+                {% for history in data["histories"] %}
+                    <div class="histories_body">{{ history.id }}</div>
+                    <div class="histories_body">{{ history.product }}</div>
+                    <div class="histories_body">
+                        {% if history.type == 'increase' %}
+                            Incrementar
+                        {% else %}
+                            Disminuir
+                        {% endif %}
+                    </div>
+                    <div class="histories_body">{{ history.quantity }}</div>
+                    <div class="histories_body content-actions">
+                        <a class="btn btn-view" href="{{ url_for('index.history.show', id=history.id ) }}" >ver</a>
+                    </div>
+                    
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="not-content">No hay registros del historial</p>
+        {% endif %}
+    </div>
+        
+
+
+{% endblock %}

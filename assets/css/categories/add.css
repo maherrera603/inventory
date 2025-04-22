@@ -1,0 +1,20 @@
+.content_category_add {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.content_category_add .content_category_add_header{
+    padding: 5px 0;
+    border-bottom: 1px solid var( --secondary );
+}
+
+.content_category_add .content_category_add_header h1 {
+    font-size: 23px;
+}
+
+.content_category_add .content_category_add_body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}

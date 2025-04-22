@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/auth/login.css' ) }}" type="text/css" media="all">
+{% endblock%}
+
+
+{% block main %}
+    <main class="main_login">
+        
+        <div id="content-login" class="content-login">
+            <div id="content-login__header" class="content-login__header">
+                <h1>iniciar sesion</h1>
+            </div>
+
+            <form id="content-login__body" class="content-login__body">
+                <div class="form_control">
+                   <label for="email">correo electronico</label>
+                   <input type="email" name="email" id="email" placeholder="correo electronico">
+                </div>
+
+                <div class="form_control">
+                    <label for="password">contraseña</label>
+                    <input type="password" name="password" id="password" placeholder="contraseña"> 
+                </div>
+
+                <div class="form_action">
+                    <button type="submit">ingresar</button>
+                </div>
+                
+            </form>
+            
+            <div id="alert" class="alert"> hola mundo</div>
+        </div>
+        
+    </main>
+{% endblock %}
+
+{% block js %}
+    <script type="module" src="{{ url_for( 'static', filename='js/auth/login.js' ) }}"></script>
+{% endblock %}
+

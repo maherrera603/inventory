@@ -1,0 +1,26 @@
+.content__add {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.content__add .content__add__header{
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+    min-height: 39px;
+    border-bottom: 1px solid var( --secondary );
+    padding: 5px  0;
+}
+
+.content__add .content__add__header h1 {
+    font-size: 23px;
+}
+
+.content__add .content__add__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}

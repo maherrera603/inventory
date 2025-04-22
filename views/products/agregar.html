@@ -1,0 +1,72 @@
+{% extends "inventaryLayout.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/products/add.css')}}" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/popup_history.css')}}" type="text/css" media="all">
+{% endblock %}
+
+{% block main %}
+    <div class="content__add">
+        <div class="content__add__header">
+            <h1>{{ data.title_page }} Producto</h1>
+        </div>
+        <form class="content__add__body">
+            {% if data.product.id %}
+                <input type="hidden" name="id" id="id" value="{{ data.product.id }}">
+            {% endif %}
+            
+            <div class="form_control">
+                <label for="name">Nombre del producto</label>
+                <input type="text" name="name" id="name" placeholder="Nombre del producto" value="{{ data.product.name }}">
+            </div>
+
+            <div class="form_control">
+                <label for="sku">Sku</label>
+                <input type="text" name="sku" id="sku" placeholder="Sku" value="{{ data.product.sku }}">
+            </div>
+
+            <div class="form_control">
+                <label for="categorie">Categoria</label>
+                <select name="category" id="category">
+                    <option disabled selected>Seleccione la categoria</option>                    
+                    {% for category in data.categories %}
+                        <option {% if data.product.category == category.id %} selected {% endif %} value="{{ category.id }}">{{ category.category }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form_control">
+                <label for="quantity">Cantidad</label>
+                <input type="number" name="quantity" id="quantity" placeholder="Cantidad del producto" min="1" value="{{ data.product.quantity }}">
+            </div>
+
+            <div class="form_control">
+                <label for="price">Precio</label>
+                <input type="number" name="price" id="price" placeholder="Precio del producto" min="50" value="{{ data.product.price }}">
+            </div>
+            
+            <div class="form_control">
+                <label for="status">Estado</label>
+                <select name="status" id="status">
+                    <option selected disabled>Seleccione el estado</option>
+                    <option {% if data.product.status == "available" %} selected {% endif %} value="available">Disponible</option>
+                    <option {% if data.product.status == "exhausted" %} selected {% endif %} value="exhausted">Agotado</option>
+                </select>
+            </div>
+
+            <div class="form_action">
+                <button type="submit">{{ data.title_page }}</button>
+            </div>
+
+        </form>
+        <div id="alert" class="alert"></div>
+    </div>
+
+    {% include "/components/popup_history.html" %}
+
+{% endblock %}
+
+{% block js %}
+    <script type="module" src="{{ url_for( 'static', filename='js/products/product.js')}}"></script>
+    <script type="module" src="{{ url_for( 'static', filename='js/history/history.js')}}"></script>
+{% endblock %}

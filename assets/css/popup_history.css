@@ -1,0 +1,65 @@
+.overlay_history {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur( 2px);
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s ease all;
+}
+
+.overlay_history .popup_history {
+    min-width: min( 100% - 10%, 600px);
+    width: min( 100% - 10%, 600px);
+    max-width: min( 100% - 10%, 600px);
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    background-color: var(--white);
+    border-radius: var(--border_radius);
+    padding: 20px 15px;
+    border: 1px solid var( --secondary);
+}
+
+.overlay_history .popup_history .popup_history_header{
+    border-bottom: 1px solid var( --secondary );
+    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay_history .popup_history .popup_history_body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.overlay_history .popup_history .popup_history_body .alert_popup {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 0px;
+    text-align: center;
+    font-family: "Montserrant-bold";
+    font-size: 14px;
+    transition: .3s ease all;
+}
+
+.overlay_history .popup_history .popup_history_body .alert_popup_danger {
+    color: red;
+    padding: 5px 0;
+}
+
+.overlay_history .popup_history .popup_history_body .alert_popup_success {
+    color: green;
+    padding: 5px 0;
+}
+
+
+.overlay_history_active {
+    visibility: visible;
+    opacity: 1;
+}
+

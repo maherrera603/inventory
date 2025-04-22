@@ -1,0 +1,72 @@
+{% extends 'inventaryLayout.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/history/show.css')}}" type="text/css" media="all">
+{% endblock%}
+
+{% block main %}
+    <div class="content_history">
+        <div class="content_history_header">
+            <h1>Historial del producto</h1>
+        </div>
+
+        <div class="content_history_body">
+            <div class="content_history_body_move">
+                <div class="content_history_body_move_header">
+                    <h3>Movimiento</h3>
+                </div>
+                <div class="content_history_body_move_body">
+                    <p class="content_history_body_move_body_item">
+                        <span>tipo de movimiento:</span> 
+                        {% if data.history.type == 'increase' %}
+                            Incrementar
+                        {% else %}
+                            Disminuir
+                        {% endif %}
+                    </p>
+                    <p class="content_history_body_move_body_item">
+                        <span>Descripcion del movimiento:</span> {{ data.history.description}}
+                    </p>
+                    <p class="content_history_body_move_body_item">
+                        <span>producto:</span> {{ data.product.name}}
+                    </p>
+                    <p class="content_history_body_move_body_item">
+                        <span>cantidad:</span> {{ data.history.quantity}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="content_history_body_product">
+                <div class="content_history_body_product_header">
+                    <h3>Producto</h3>
+                </div>
+                <div class="content_history_body_product_body">
+                    <p class="content_history_body_product_body_item">
+                        <span>nombre del producto:</span> {{ data.product.name}}
+                    </p>
+                    <p class="content_history_body_product_body_item">
+                        <span>sku:</span> {{ data.product.sku}}
+                    </p>
+                    <p class="content_history_body_product_body_item">
+                        <span>categoria:</span> {{ data.category.category}}
+                    </p>
+                    <p class="content_history_body_product_body_item">
+                        <span>cantidad:</span> {{ data.product.quantity}}
+                    </p>
+                    <p class="content_history_body_product_body_item">
+                        <span>price:</span> {{ data.product.price}}
+                    </p>
+
+                    <p class="content_history_body_product_body_item">
+                        <span>estado:</span>
+                        {% if data.product.status == 'available' %}
+                            Disponible
+                        {% else %}
+                            Agotado
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

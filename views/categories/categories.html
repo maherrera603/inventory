@@ -1,0 +1,38 @@
+{% extends "inventaryLayout.html"%}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/categories/categories.css' ) }}" type="text/css" media="all">
+{% endblock %}
+
+
+{% block main %}
+<div class="content__categories">
+    <div class="content__categories__header">
+        <h1 class="content__categories__header__title">Listado de categorias</h1>
+        <a href="{{ url_for('index.categories.add' )}}" >agregar</a> 
+    </div>
+
+
+    {% if data["categories"] | length  > 0  %}
+   
+        <div class="categories">
+            <div class="categories_header">N°</div>
+            <div class="categories_header">categoria</div>
+            <div class="categories_header">estado</div>
+            <div class="categories_header">accion</div>
+
+            {% for category in data["categories"] %}
+                <div class="categories_body">{{ category.id }}</div>
+                <div class="categories_body">{{ category.category }}</div>
+                <div class="categories_body"> {{ category.status }} </div>
+                <div class="categories_body content-actions">
+                    <a class="btn btn-view" href="{{ url_for( 'index.categories.show', id=category.id)}}" >Ver</a>|
+                    <a class="btn btn-delete" href="{{ url_for( 'index.categories.delete', id=category.id)}}">Eliminar</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="not-content">No hay productos registrados</p>
+    {% endif %}
+</div>
+{% endblock%}

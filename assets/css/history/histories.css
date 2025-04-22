@@ -1,0 +1,53 @@
+.content__histories {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.content__histories .content__histories__header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var( --secondary );
+    padding: 5px 0;
+}
+
+.content__histories .content__histories__header .content__histories__header__title {
+   font-size: 23px; 
+}
+
+.content__histories .content__histories__header a {
+    padding: 8px;
+    background-color: var( --primary );
+    color: var( --secondary );
+    border: 1px solid var( --secondary );
+    border-radius:  var( --border_radius );
+    cursor: pointer;
+    font-family: "Monserrant-regular";
+}
+.histories {
+    display: grid;
+    grid-template-columns: repeat( 5, 1fr );
+    grid-auto-rows:  42px;
+    border-radius: var( --border_radius );
+    min-height: 42px;
+    border: 1px solid var( --secondary );
+
+}
+
+.histories .histories_header {
+    background-color: var(--primary);
+    color: var( --secondary );
+    align-content: center;
+    text-align: center;
+    font-family: "Monserrant-regular";
+    text-transform: capitalize;
+}
+
+.histories .histories_body {
+    border-bottom: 1px solid var( --secondary );
+    align-content: center;
+    text-align: center;
+}

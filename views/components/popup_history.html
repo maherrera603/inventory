@@ -1,0 +1,45 @@
+<div class="overlay_history " id="overlay_history">
+    <div class="popup_history" id="popup_history">
+        <div class="popup_history_header">
+            <h1>Registrar Movimiento</h1>
+            <p>
+                Al realizar la actualizacion del producto se requiere registrar el moviento del proceso
+            </p>
+        </div>
+        <form class="popup_history_body" id="form_history">
+            <input type="hidden" name="id_product" id="id_product" value="">
+            <input type="hidden" name="user" id="user">
+
+            <div class="form_control">
+                <label for="product">Producto</label>
+                <input type="text" name="product" id="product" value="" readonly>
+            </div>
+
+            <div class="form_control">
+                <label for="type">Tipo de movimiento</label>
+                <select name="type_move" id="type_move">
+                    <option selected disabled>Seleccione el tipo de movimiento</option>
+                    <option value="increase">Incrementar</option>
+                    <option value="decrease">Disminuir</option>
+                </select>
+            </div>
+
+            <div class="form_control">
+                <label for="quantity">Cantidad</label>
+                <input type="number" name="quantity" id="quantity" min="0" >
+            </div>
+
+            <div class="form_control">
+                <label for="description">Descripcion</label>
+                <textarea name="description" id="description" placeholder="Descripcion del movimiento"></textarea>
+            </div>
+
+            <div class="form_action">
+                <button type="submit">enviar</button>
+            </div>
+
+            <div class="alert_popup" id="alert_popup"></div>
+
+        </form>
+    </div>
+</div>

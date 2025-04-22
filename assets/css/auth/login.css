@@ -1,0 +1,39 @@
+.main_login {
+    background-image: url("../../img/wallapaper.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-login {
+    min-width: min( 100% - 10%, 600px );
+    width: min( 100% - 10%, 600px );
+    max-width: min( 100% - 10%, 600px );
+    min-height: 200px;
+    backdrop-filter: blur( 2px );
+    border: 1px solid var( --white );
+    border-radius: var( --border_radius );
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+}
+
+.content-login__header{
+    width: 100%;
+}
+
+.content-login__header h1 {
+    text-transform: capitalize;
+    color: var( --secondary );
+    font-family: "Montserrant-bold";
+}
+
+.content-login__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}

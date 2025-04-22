@@ -1,0 +1,41 @@
+{% extends "inventaryLayout.html" %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/categories/add.css')}}">
+{% endblock %}
+
+{% block main %}
+    <div class="content_category_add">
+        <div class="content_category_add_header">
+            <h1>{{ data.action_title}} categoria</h1>
+        </div>
+
+        <form class="content_category_add_body">
+
+            {% if "id" in data.category %}
+                <input type="hidden" name="id" id="id" value="{{ data.category.id }}">
+            {% endif %}
+
+            <div class="form_control">
+                <label for="category">Categoria</label>
+                <input type="text" name="category" id="category" placeholder="nombre de la categoria" value="{{data.category.category}}">
+            </div>
+            <div class="form_control">
+                <label for="status">Estado</label>
+                <select name="status" id="status">
+                    <option selected disabled>Seleccione el estado de la categoria</option>
+                    <option {% if data.category.status == 'active'%} selected {% endif %} value="active">Activa</option>
+                    <option {% if data.category.status == 'inactive'%} selected {% endif %} value="inactive">Inactiva</option>
+                </select>
+            </div>
+            <div class="form_action">
+                <button type="submit">{{ data.action_title }}</button>
+            </div>
+        </form>
+        <div id="alert" class="alert"></div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script type="module" src="{{ url_for( 'static', filename='js/categories/add.js')}}"></script>
+{% endblock%}

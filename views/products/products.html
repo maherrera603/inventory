@@ -1,0 +1,43 @@
+{% extends 'inventaryLayout.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/products/products.css' ) }}" type="text/css" media="all">
+{% endblock %}
+
+{% block main %} 
+
+    <div class="content__products">
+        <div class="content__products__header">
+            <h1 class="content__products__header__title">Listado de productos</h1>
+            <a href="{{ url_for('index.products.add') }}" >agregar</a> 
+        </div>
+
+
+        {% if data["products"] | length  > 0  %}
+       
+            <div class="products">
+                <div class="products_header">N°</div>
+                <div class="products_header">producto</div>
+                <div class="products_header">sku</div>
+                <div class="products_header">Cantidad</div>
+                <div class="products_header">Accion</div>
+
+                {% for product in data["products"] %}
+                    <div class="products_body">{{ product.id }}</div>
+                    <div class="products_body">{{ product.name }}</div>
+                    <div class="products_body">{{ product.sku }}</div>
+                    <div class="products_body">{{ product.quantity }}</div>
+                    <div class="products_body content-actions">
+                        <a class="btn btn-view" href="{{ url_for('index.products.show', id=product.id ) }}" >ver</a>|
+                        <a class="btn btn-delete" href="{{ url_for('index.products.delete', id=product.id)}}">eliminar</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="not-content">No hay productos registrados</p>
+        {% endif %}
+    </div>
+        
+
+
+{% endblock %}
