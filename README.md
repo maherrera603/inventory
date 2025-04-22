@@ -127,9 +127,3 @@ Si deseas cambiar la base de datos de **MongoDB** a **MySQL**, sigue estos pasos
     ```bash
     python main.py
     ```
-
-Este cambio te permitirá trabajar con MySQL en lugar de MongoDB. Si tienes alguna pregunta o problema con la migración, no dudes en consultarnos.
-
----
-
-¡Listo! Ahora tienes un archivo `README.md` completo que no solo incluye instrucciones de instalación y configuración, sino también cómo cambiar de base de datos entre MongoDB y MySQL.
